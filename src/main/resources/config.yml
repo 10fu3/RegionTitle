@@ -1,0 +1,8 @@
+config:
+  - hogomei1:
+    title: 表示するメインタイトル1
+    subtitle: 表示するサブタイトル1
+
+  - hogomei2:
+    title: 表示するメインタイトル2
+    subtitle: 表示するサブタイトル2

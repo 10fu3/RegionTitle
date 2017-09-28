@@ -1,0 +1,4 @@
+name: RegionTitle
+version: ${project.version}
+main: jp.msfblue1.regiontitle.RegionTitle
+depend: [WorldGuard]

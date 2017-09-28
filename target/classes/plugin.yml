@@ -1,0 +1,4 @@
+name: RegionTitle
+version: 1.0-SNAPSHOT
+main: jp.msfblue1.regiontitle.RegionTitle
+depend: [WorldGuard]
