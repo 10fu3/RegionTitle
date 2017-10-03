@@ -19,8 +19,9 @@ public class DataManager {
 
     public static List<Data> getRegionDatas(Plugin pl){
         List<Data> Datas = new ArrayList<>();
-
-        if(database.exists()){
+        if(!database.exists()){
+            createDataBase();
+        }else{
             Arrays.asList(database.listFiles()).forEach(file -> {
                 YamlConfiguration Data = new YamlConfiguration();
                 try {
@@ -28,7 +29,7 @@ public class DataManager {
 
                     jp.msfblue1.regiontitle.Data putdata = new Data();
 
-                    putdata.Name = Data.getString("Name");
+                    putdata.RegionName = Data.getString("RegionName");
                     putdata.Title = Data.getString("Title");
                     putdata.SubTitle = Data.getString("SubTitle");
 
@@ -51,10 +52,24 @@ public class DataManager {
     }
 
     public static boolean saveData(Data data){
-        if(Util.getWorldGuard() != null){
-
+        if(saveData(data.RegionName,data.Title,data.SubTitle)){
+            return true;
+        }else{
             return false;
         }
-        return false;
+    }
+
+    public static boolean saveData(String RegName,String Title,String SubTitle){
+        YamlConfiguration Data = new YamlConfiguration();
+        Data.set("RegionName",RegName);
+        Data.set("Title",Title);
+        Data.set("SubTitle",SubTitle);
+        try {
+            Data.save(new File(database,RegName));
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }

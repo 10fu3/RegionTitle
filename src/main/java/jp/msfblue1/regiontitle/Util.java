@@ -23,8 +23,12 @@ public class Util {
         return (WorldGuardPlugin) plugin;
     }
 
+    public static void successPuts(CommandSender sender){
+        puts(ChatColor.GREEN+"操作は成功しました",sender);
+    }
+
     public static void puts(String mes , CommandSender sender){
-        sender.sendMessage(ChatColor.GREEN+"["+ ChatColor.DARK_GRAY+"System1"+ChatColor.GREEN+"] "+ChatColor.WHITE+mes);
+        sender.sendMessage(ChatColor.GREEN+"["+ ChatColor.DARK_GRAY+"RegionTitle"+ChatColor.GREEN+"] "+ChatColor.WHITE+mes);
     }
 
     public static void errorPuts(List<String> mes , CommandSender sender){
@@ -46,14 +50,8 @@ public class Util {
     }
 
     public static void sendHelp(CommandSender sender){
-        sender.sendMessage(new String[]{
-                "",
-                "",
-                "",
-                "",
-                "",
-                ""
-        });
+        puts(ChatColor.AQUA+ "Help -コマンド一覧",sender);
+        puts("/rt reg n:保護名 t:タイトル s:サブタイトル",sender);
     }
 
     public static void errorAccess(CommandSender sender){

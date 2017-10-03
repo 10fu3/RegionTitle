@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="HexaCord">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/HexaCord.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
